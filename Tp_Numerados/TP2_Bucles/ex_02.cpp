@@ -1,12 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#ifdef _WIN32
-    #include <conio.h>
-#else
-    #include <termios.h>
-    #include <unistd.h>
-#endif
 
 void clearConsole() {
     #ifdef _WIN32
