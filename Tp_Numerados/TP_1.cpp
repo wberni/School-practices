@@ -1,6 +1,12 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#ifdef WIN_32
+    #include <conio.h>
+#else
+    #include <termios.h>
+    #include <unistd.h>
+#endif
 
 void clearConsole() {
     #ifdef _WIN32
@@ -12,7 +18,17 @@ void clearConsole() {
 
 void wait() {
     std::cout << "                                                Toque alguna tecla para continuar...";
-    std::cin.get();
+    #ifdef WIN_32
+        _getch();
+    #else //Linux //MacOS
+        termios oldt, newt;
+        tcgetattr(STDIN_FILENO, &oldt);
+        newt = oldt;
+        newt.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        getchar();
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    #endif
 }
 
 
