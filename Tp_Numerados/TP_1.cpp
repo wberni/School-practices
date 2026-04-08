@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#ifdef WIN_32
+#ifdef _WIN32
     #include <conio.h>
 #else
     #include <termios.h>
