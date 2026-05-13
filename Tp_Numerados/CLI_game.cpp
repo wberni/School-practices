@@ -6,22 +6,23 @@
 #include <ctime>
 
 #ifdef _WIN32
-    #include <conio.h> //_getch()
+#include <conio.h> //_getch()
 #else
-    #include <termios.h>
-    #include <unistd.h>
+#include <termios.h>
+#include <unistd.h>
 #endif
 
 class validator
 {
 private:
     std::string input;
+
 public:
     validator() : input("") {}
     bool validateOption(std::string option)
     {
         if (option.length() != 1)
-        { 
+        {
             return false;
         }
         if (option.front() == 'a' || option.front() == 'b' || option.front() == 'c' || option.front() == 'd' || option.front() == 'e')
@@ -48,30 +49,32 @@ public:
     { // Unique setter of the code
         std::cin >> menuOption;
     }
-    void clear() {
-        #ifdef _WIN32
-                std::cout << "\033[H\033[J";
-        #else
-                system("clear");
-        #endif
+    void clear()
+    {
+#ifdef _WIN32
+        std::cout << "\033[H\033[J";
+#else
+        system("clear");
+#endif
     }
-void wait() {
-    std::cout << tabs << "\n\n                                                Toque alguna tecla para continuar..." << std::flush;
-    #ifdef _WIN32
+    void wait()
+    {
+        std::cout << tabs << "\n\n                                                Toque alguna tecla para continuar..." << std::flush;
+#ifdef _WIN32
         _getch();
-    #else
+#else
         termios oldt, newt;
         tcgetattr(STDIN_FILENO, &oldt);
         newt = oldt;
         newt.c_lflag &= ~(ICANON | ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-        
+
         char ch;
         read(STDIN_FILENO, &ch, 1);
-        
+
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-    #endif
-}
+#endif
+    }
     void showTraining()
     {
         for (int i = 0; i < 20; ++i)
@@ -292,7 +295,7 @@ void wait() {
                 std::cout << tabs << "                                              ▄███▀ ▀███▄       \n";
                 std::cout << tabs << "                                              ▀▀▀     ▀▀▀        \n";
                 std::cout << "\n\n\033[0m";
-        }
+            }
 
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
         }
@@ -378,12 +381,14 @@ void wait() {
             std::cout << "\n\n\n";
             std::cout << "\033[31m";
             std::cout << "                                                     ☠  T E  Q U E D A S T E  S I N  E N E R G I A  ☠ \n";
-            if (training == true) {
+            if (training == true)
+            {
                 std::cout << "                             V E   A   D E S C A N S A R   A N T E S   D E  C O M E N Z A R   E L   E N T R E N A M I E N T O\n\n";
-            } else {
+            }
+            else
+            {
                 std::cout << "                                   V E   A   D E S C A N S A R   A N T E S   D E  C O M E N Z A R   L A   M I S I Ó N\n\n";
             }
-            
 
             std::cout << "\033[91m";
             std::cout << tabs << frames[frame];
@@ -393,7 +398,8 @@ void wait() {
             std::this_thread::sleep_for(std::chrono::milliseconds(700));
         }
     }
-    void showGoodbye() {
+    void showGoodbye()
+    {
         clear();
         std::cout << tabs << "         █████╗ ██╗   ██╗    ██████╗ ███████╗██╗   ██╗ ██████╗ ██╗██████╗                                    \n";
         std::cout << tabs << "        ██╔══██╗██║   ██║    ██╔══██╗██╔════╝██║   ██║██╔═══██╗██║██╔══██╗                                   \n";
@@ -408,7 +414,6 @@ void wait() {
         std::cout << tabs << "                        ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║██║██╔══╝  ██║   ██║██╔══██╗                   \n";
         std::cout << tabs << "                        ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║██║███████╗╚██████╔╝██║  ██║                   \n";
         std::cout << tabs << "                        ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝                   \n";
-
     }
     void showRest()
     {
@@ -421,7 +426,7 @@ void wait() {
                 std::cout << "\n\033[38;5;39m                                              █▀█ █▀▀ █▀▀ ▄▀█ █▀█ █▀▀ ▄▀█ █▄░█ █▀▄ █▀█ \n";
                 std::cout << "                                              █▀▄ ██▄ █▄▄ █▀█ █▀▄ █▄█ █▀█ █░▀█ █▄▀ █▄█   E N E R G Í A   Y   V I D A   (1 0 0 %)\033[0m\n";
                 std::cout << "\n\n"
-                    << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
+                          << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
                 std::cout << tabs << "                     d8P'    `Y8b                                    \033[0m\n";
                 std::cout << tabs << "\033[38;5;229m                     888                           \033[0m.▄▄█▀▀▀█▄▄.       \n";
                 std::cout << tabs << "\033[38;5;229m                     888                   \033[0mz      ▄█▀  ▄▄▄  ▀█▄      \n";
@@ -440,7 +445,7 @@ void wait() {
                 std::cout << "\n\033[38;5;39m                                              █▀█ █▀▀ █▀▀ ▄▀█ █▀█ █▀▀ ▄▀█ █▄░█ █▀▄ █▀█ \n";
                 std::cout << "                                              █▀▄ ██▄ █▄▄ █▀█ █▀▄ █▄█ █▀█ █░▀█ █▄▀ █▄█   E N E R G Í A   Y   V I D A   (1 0 0 %)\033[0m\n";
                 std::cout << "\n\n"
-                    << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
+                          << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
                 std::cout << tabs << "                     d8P'    `Y8b                \033[0mz                    \n";
                 std::cout << tabs << "\033[38;5;229m                     888                      \033[0mZ    .▄▄█▀▀▀█▄▄.       \n";
                 std::cout << tabs << "\033[38;5;229m                     888                   \033[0mZ      ▄█▀  ▄▄▄  ▀█▄      \n";
@@ -459,7 +464,7 @@ void wait() {
                 std::cout << "\n\033[38;5;39m                                              █▀█ █▀▀ █▀▀ ▄▀█ █▀█ █▀▀ ▄▀█ █▄░█ █▀▄ █▀█ \n";
                 std::cout << "                                              █▀▄ ██▄ █▄▄ █▀█ █▀▄ █▄█ █▀█ █░▀█ █▄▀ █▄█   E N E R G Í A   Y   V I D A   (1 0 0 %)\033[0m\n";
                 std::cout << "\n\n"
-                    << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
+                          << tabs << "\033[38;5;229m                       .oooooo.                                      \n";
                 std::cout << tabs << "                     d8P'    `Y8b                               \033[0mz      Z                  \n";
                 std::cout << tabs << "\033[38;5;229m                     888                       \033[0mz   .▄▄█▀▀▀█▄▄.       \n";
                 std::cout << tabs << "\033[38;5;229m                     888                \033[0mz    Z    ▄█▀  ▄▄▄  ▀█▄      \n";
@@ -496,8 +501,8 @@ void wait() {
         std::cout << "\033[0m";
         std::cout << tabs << "\033[38;5;141m                        >Elige tu opción: ";
     }
-    void showStats(int health, int energy, int strenght)
-    { // getters of strenght, energy & health
+    void showStats(int health, int energy, int strength)
+    { // getters of strength, energy & health
         clear();
         std::cout << tabs << "\033[38;5;39m ██████ ▄▄▄█████▓ ▄▄▄     ▓█████▄  ██▓  ██████ ▄▄▄█████▓ ██▓ ▄████▄    ██████   \033[0m\n";
         std::cout << tabs << "\033[38;5;39m▒██    ▒ ▓  ██▒ ▓▒▒████▄   ▒██▀ ██▌▓██▒▒██    ▒ ▓  ██▒ ▓▒▓██▒▒██▀ ▀█  ▒██    ▒  \033[0m\n";
@@ -511,7 +516,7 @@ void wait() {
         std::cout << tabs << "\033[38;5;39m                               ░                               ░                \033[0m\n";
 
         std::cout << tabs << "\033[38;5;51m ＞ ＨＥＡＬＴＨ           " << "＞ ＥＮＥＲＧＹ           " << "＞ ＳＴＲＥＮＧＴＨ\033[0m  \n";
-        std::cout << tabs << "  " << health << "/100                     " << energy << "/100                  " << strenght << "/100\n";
+        std::cout << tabs << "  " << health << "/100                     " << energy << "/100                  " << strength << "/100\n";
         wait();
     }
 };
@@ -519,7 +524,7 @@ void wait() {
 class gladiator
 {
 private:
-    int strenght;
+    int strength;
     int energy;
     int health;
     int randNumber;
@@ -527,19 +532,20 @@ private:
     bool reliquia_encontrada;
 
 public:
-    gladiator() : strenght(10), energy(100), health(100), randNumber(0),
-                secretNumber(7), reliquia_encontrada(false) {}
+    gladiator() : strength(10), energy(100), health(100), randNumber(0),
+                  secretNumber(7), reliquia_encontrada(false) {}
     bool train()
     {
-        if (energy == 0) {
+        if (energy == 0)
+        {
             return false;
         }
-        if (strenght >= 100)
+        if (strength >= 100)
         {
-            strenght = 100;
+            strength = 100;
             return true;
         }
-        strenght += 10;
+        strength += 10;
         energy -= 10;
         return true;
     }
@@ -579,9 +585,9 @@ public:
         generateNum();
     }
     // GETTERS
-    int getStrenght()
+    int getstrength()
     {
-        return strenght;
+        return strength;
     }
     int getEnergy()
     {
@@ -600,48 +606,57 @@ int main()
     gladiator gladiador;
     UI ui;
 
-    // health | energy | strenght
-    do {
-        do {
+    // health | energy | strength
+    do
+    {
+        do
+        {
             ui.clear();
             ui.showMenu();
             ui.setMenuOption();
         } while (validador.validateOption(ui.getMenuOption()) == false);
-        
-        switch((ui.getMenuOption()).front()) {
-            case 'a':
-            if (gladiador.train() == false) {
+
+        switch ((ui.getMenuOption()).front())
+        {
+        case 'a':
+            if (gladiador.train() == false)
+            {
                 ui.showGo_rest_first(true); // true == training, false == mission
                 break;
-            } else {
+            }
+            else
+            {
                 ui.showTraining();
                 break;
             }
-            case 'b':
-                if (gladiador.getEnergy() == 0) {
-                    ui.showGo_rest_first(false); // true == training, false == mission
-                    break;
-                }
-                ui.showMission();
-                if(gladiador.mission() == true) {
-                    ui.showTreasureFound();
-                } else {
-                    ui.showTreasure_not_found();
-                }
+        case 'b':
+            if (gladiador.getEnergy() == 0)
+            {
+                ui.showGo_rest_first(false); // true == training, false == mission
                 break;
-            case 'c':
-                ui.showStats(gladiador.getHealth(), gladiador.getEnergy(), gladiador.getStrenght());
-                break;
-            case 'd':
-                gladiador.rest();
-                ui.showRest();
-                break;
-            case 'e':
-                ui.showGoodbye();
-                return 0;
-
+            }
+            ui.showMission();
+            if (gladiador.mission() == true)
+            {
+                ui.showTreasureFound();
+            }
+            else
+            {
+                ui.showTreasure_not_found();
+            }
+            break;
+        case 'c':
+            ui.showStats(gladiador.getHealth(), gladiador.getEnergy(), gladiador.getstrength());
+            break;
+        case 'd':
+            gladiador.rest();
+            ui.showRest();
+            break;
+        case 'e':
+            ui.showGoodbye();
+            return 0;
         }
     } while ((ui.getMenuOption()).front() != 'e');
-    
-        return 0;
+
+    return 0;
 }
