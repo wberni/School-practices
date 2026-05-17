@@ -82,12 +82,20 @@ int main() {
         std::cout << "╠═════════════════════════════════════════════════════╣ \n";
         std::cout << "║                                                     ║ \n";
         std::cout << "    Número [A] ➜ " << stNumber1 << std::endl;
-        std::cout << "    Número [A] ➜ " << stNumber2 << std::endl;
+        std::cout << "    Número [B] ➜ " << stNumber2 << std::endl;
         std::cout << "╔═════════════════════════════════════════════════════╗ \n";
         std::cout << "║           >>> SUMA de Números PRIMOS <<<            ║ \n";
         std::cout << "╠═════════════════════════════════════════════════════╣ \n";
         std::cout << "    Número A [" + stNumber1 + "] + " + "Número B [" + stNumber2 + "]  = " << std::stoi(stNumber1) + std::stoi(stNumber2) << std::endl;
-
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "" << std::endl;
+        std::cout << "                    █████╗ ██╗   ██╗    ██████╗ ███████╗██╗   ██╗ ██████╗ ██╗██████╗     ██╗" << std::endl;
+        std::cout << "                   ██╔══██╗██║   ██║    ██╔══██╗██╔════╝██║   ██║██╔═══██╗██║██╔══██╗    ██║" << std::endl;
+        std::cout << "                   ███████║██║   ██║    ██████╔╝█████╗  ██║   ██║██║   ██║██║██████╔╝    ██║" << std::endl;
+        std::cout << "                   ██╔══██║██║   ██║    ██╔══██╗██╔══╝  ╚██╗ ██╔╝██║   ██║██║██╔══██╗    ╚═╝" << std::endl;
+        std::cout << "                   ██║  ██║╚██████╔╝    ██║  ██║███████╗ ╚████╔╝ ╚██████╔╝██║██║  ██║    ██╗" << std::endl;
+        std::cout << "                   ╚═╝  ╚═╝ ╚═════╝     ╚═╝  ╚═╝╚══════╝  ╚═══╝   ╚═════╝ ╚═╝╚═╝  ╚═╝    ╚═╝" << std::endl;
  
     return EXIT_SUCCESS;
 }

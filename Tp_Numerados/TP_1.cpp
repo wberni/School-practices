@@ -1,13 +1,20 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+<<<<<<< HEAD
 #ifdef WIN_32
+=======
+#ifdef _WIN32
+>>>>>>> c93f146796002eeef75530dd9cc9cd1d8a769119
     #include <conio.h>
 #else
     #include <termios.h>
     #include <unistd.h>
 #endif
+<<<<<<< HEAD
 
+=======
+>>>>>>> c93f146796002eeef75530dd9cc9cd1d8a769119
 
 void clearConsole() {
     #ifdef _WIN32
