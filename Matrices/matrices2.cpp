@@ -1,3 +1,4 @@
+// Hacer un algoritmo que llene una matriz de 4*4 y determine la posición [fila, columna] del número mayor almacenado en la matriz.
 #include<iostream>
 
 struct nroMayor {
