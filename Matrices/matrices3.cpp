@@ -19,7 +19,9 @@ void Arreglar(int x, int y, int Filas[4],int Columnas[4], const int matriz[4][4]
         }
         Columnas[j] = sumaColumna;
     }
+}
 
+void mostrarArreglos(int x, int y, int Filas[4], int Columnas[4]) {
     // recorriendo y mostrando nros para verificar
     std::cout << "Sumas de Filas: ";
     for (int n = 0; n < x; n++) {
@@ -64,7 +66,7 @@ int main()
     }
 
     Arreglar(x, y, Filas, Columnas, matriz);
-
+    mostrarArreglos(x, y, Filas, Columnas);
     
     return 0;
 }
